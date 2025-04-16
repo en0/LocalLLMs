@@ -30,7 +30,7 @@ If you want to use the websearch functionality, you must enable json format supp
 only need to run this once. Changes are saved in your Docker volume.
 
 ```bash
-PROJ=$(basename $PWD)
+PROJ=$(basename $PWD | tr '[:upper:]' '[:lower:]')
 sudo sed -i '/\ \ formats:/a \ \ \ \ - json' $(docker volume inspect ${PROJ}_searxng | jq '.[].Mountpoint' | cut -d'"' -f2)/settings.yml
 ```
 
@@ -39,3 +39,16 @@ Then, restart the SearXNG service
 ```bash
 docker compose restart searxng
 ```
+
+### Install A Model
+
+You can install a model from OpenwebUI in the admin panel. The easy way to do it is from the CLI.
+
+```bash
+docker run ollama ollama pull gemma3
+```
+
+## Services
+
+- OpenwebUI: http://localhost:3000
+- SearXNG: http://localhost:3001
