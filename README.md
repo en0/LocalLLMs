@@ -5,6 +5,9 @@ Run local LLMs using OpenwebUI and Ollama.
 This repo contains a docker compose file to spin up OpenwebUI and Ollama with the SearXNG search
 aggregator availble for web searches within open web ui.
 
+**NOTE: The compose script is configured to run on AMD GPUs. If you are running anything else, make
+sure to make the required changes to the ollama service.**
+
 ## Quick Start
 
 ### Prerequisites
